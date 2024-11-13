@@ -13,3 +13,8 @@ The Script_Starter.R file represents what we typically use as a "starter section
 * **Specify and read input files**: We first specify the file names that we will import in one section and then read them in below. This makes the code easier to read by avoiding code that wraps or requires the user to scroll to understand where the data are coming from.
 
 We find that this starter section avoids any confusion as to what the script does, what packages it uses, where data are imported and exported, and which files are used for analyses.
+
+## Export_Data.R
+The Export_Data.R file represents what we often use to export data (in this case a dataframe) out of R, usually to a .CSV file. We are almost always working within an R project, so we specify an output file path using multiple arguments including **wd**, **output.dir**, and **results.dir**. We also specify the date which prevents older files being overwritten if code is updated in the future.
+
+We prefer to use the base R function *write.table* because it's quite flexible for our uses and allows us to export data in a variety of formats including CSV and TSV. Other alternatives include the *readr::write_csv* or *readr::write_tsv* that work well with the tidyverse. Honestly, I don't notice much of a difference in performance even with large datasets. Lastly, you could consider exporting to Microsoft Excel using the *xlsx::write.xlsx* function. 
